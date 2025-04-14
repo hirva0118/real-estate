@@ -1,0 +1,180 @@
+import React from "react";
+import { Box, Button, Container, IconButton, Typography } from "@mui/material";
+import Customcard from "../../Component/Customcard";
+import { Images } from "../../assets/Images";
+import ArrowForwardIcon from "@mui/icons-material/ArrowForward";
+import ArrowBackIcon from "@mui/icons-material/ArrowBack";
+
+import "swiper/css";
+import "swiper/css/navigation";
+import "swiper/css/pagination";
+import { Swiper, SwiperSlide } from "swiper/react";
+import { Navigation, Pagination } from "swiper/modules";
+
+const Properties = () => {
+  const cardData = [
+    {
+      photo: Images.house1,
+      title: "Seaside Serenity Villa",
+      paragraph:
+        "A stunning 4-bedroom, 3-bathroom villa in a peaceful and suburban neighbour..Read More",
+      bedroomCount: "4-Bedroom",
+      bathroomCount: "3-Bathroom",
+      price: "$550,000",
+    },
+    {
+      photo: Images.house2,
+      title: "Metropolitan Heaven",
+      paragraph:
+        "A chic and fully-furnished 2-bedroom apartment with panoramic city views... Read More",
+      bedroomCount: "2-Bedroom",
+      bathroomCount: "2-Bathroom",
+      price: "$550,000",
+    },
+    {
+      photo: Images.house3,
+      title: "Rustric Retreat Cottage",
+      paragraph:
+        "A chic and fully-furnished 2-bedroom apartment with panoramic city views... Read More",
+      bedroomCount: "3-Bedroom",
+      bathroomCount: "3-Bathroom",
+      price: "$550,000",
+    },
+    {
+      photo: Images.house1,
+      title: "Metropolitan Heaven",
+      paragraph:
+        "A chic and fully-furnished 2-bedroom apartment with panoramic city views... Read More",
+      bedroomCount: "2-Bedroom",
+      bathroomCount: "2-Bathroom",
+      price: "$550,000",
+    },
+    {
+      photo: Images.house2,
+      title: "Metropolitan Heaven",
+      paragraph:
+        "A chic and fully-furnished 2-bedroom apartment with panoramic city views... Read More",
+      bedroomCount: "2-Bedroom",
+      bathroomCount: "2-Bathroom",
+      price: "$550,000",
+    },
+    {
+      photo: Images.house3,
+      title: "Metropolitan Heaven",
+      paragraph:
+        "A chic and fully-furnished 2-bedroom apartment with panoramic city views... Read More",
+      bedroomCount: "2-Bedroom",
+      bathroomCount: "2-Bathroom",
+      price: "$550,000",
+    },
+    {
+      photo: Images.house1,
+      title: "Metropolitan Heaven",
+      paragraph:
+        "A chic and fully-furnished 2-bedroom apartment with panoramic city views... Read More",
+      bedroomCount: "2-Bedroom",
+      bathroomCount: "2-Bathroom",
+      price: "$550,000",
+    },
+  ];
+
+  return (
+    <Container
+      sx={{
+        backgroundColor: "black",
+        maxWidth: { xs: "600px", sm: "800px", md: "1000px", lg: "1480px" },
+        marginBottom: "120px",
+      }}
+    >
+      <Box
+        sx={{
+          display: "flex",
+          flexDirection: {xs:"column",lg:"row"},
+          justifyContent: "space-between",
+          alignItems: "center",
+        }}
+      >
+        <Box sx={{ display: "flex", flexDirection: "column", maxWidth: "lg" }}>
+          <Typography
+            sx={{ fontSize: "38px", color: "white", marginBottom: "10px" }}
+          >
+            Featured properties
+          </Typography>
+          <Typography sx={{ color: "text.grey60",maxWidth:"950px", marginBottom: {xs:"20px",lg:"50px"} }}>
+            Explore our handpicked selection of featured properties. Each
+            listing offers a glimpse into exceptional homes and investments
+            available through Estatein. Click "View Details" for more
+            information.
+          </Typography>
+        </Box>
+        <Button
+          sx={{
+            display: "flex",
+            height: "fit-content",
+            color: "white",
+            backgroundColor: "background.grey1",
+            padding: "20px",
+            marginBottom:{xs:"20px",lg:"0px"}
+          }}
+        >
+          View all Properties
+        </Button>
+      </Box>
+      <Box>
+        <Swiper
+          pagination={{
+            type: "fraction",
+            el: ".swiper-paginat",
+            clickable: true,
+            renderFraction: (currentClass, totalClass) => {
+              return `<span class="${currentClass}"></span> of <span class="${totalClass}"></span>`;
+            },
+          }}
+          modules={[Navigation, Pagination]}
+          slidesPerView={1}
+          navigation={{
+            prevEl: ".swiper-prev",
+            nextEl: ".swiper-next",
+          }}
+          breakpoints={{
+            640: { slidesPerView: 1 },
+            768: { slidesPerView: 2 },
+            1024: { slidesPerView: 3 },
+            1440: { slidesPerView: 3 },
+          }}
+        >
+          {cardData.map((item, index) => (
+            <SwiperSlide key={index}>
+              <Customcard key={index} carditem={item} />
+            </SwiperSlide>
+          ))}
+        </Swiper>
+        <Box sx={{ display: "flex", alignItems: "center", marginTop: "40px" }}>
+          <span className="swiper-paginat"></span>
+          <Box
+            sx={{
+              display: "flex",
+              flexDirection: "row",
+              justifyContent: "flex-end",
+              gap: 2,
+              marginTop: "18px",
+            }}
+          >
+            <Box className="swiper-prev">
+              <IconButton sx={{ color: "white", backgroundColor: "gray" }}>
+                <ArrowBackIcon />
+              </IconButton>
+            </Box>
+            <Box className="swiper-next">
+              <IconButton sx={{ color: "white", backgroundColor: "grey" }}>
+                <ArrowForwardIcon />
+              </IconButton>
+            </Box>
+          </Box>
+        </Box>
+      </Box>
+    </Container>
+  );
+};
+
+export default Properties;

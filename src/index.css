@@ -1,0 +1,34 @@
+body {
+  margin: 0;
+}
+* {
+  box-sizing: border-box;
+}
+.swiper-paginat {
+  color: white !important;
+  font-size: large;
+}
+.swiper-pagi {
+  color: white !important;
+  font-size: large;
+}
+.swiper-pagin {
+  color: white !important;
+  font-size: large;
+}
+.swiper-pagination3 {
+  color: white !important;
+  font-size: large;
+}
+.MuiCardContent-root {
+  padding: 0 !important;
+}
+.swiper-wrapper{
+  gap: 20px;
+}
+.MuiInputBase-input{
+  color: white !important;
+}
+.MuiCardMedia-root{
+  object-fit: contain !important;
+}
